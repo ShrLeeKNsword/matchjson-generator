@@ -1,56 +1,60 @@
-name: First GitHub Actions Demo
-on: 
+name: Deploy GitHub Pages
+
+on:
   push:
-    branches:
-      - master
-      - dev
+    branches: ['main'] # 如果你的默认分支不是 main，请修改这里
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
-  Build:
+  build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-    # 步骤名称
-    - name: checkout code
-      uses: actions/checkout@v2
-    - name: actions/setup-node@v2
-      uses: actions/setup-node@v2   
-      with:
-        node-version: '20.15'
-        cache: 'yarn'
-        cache-dependency-path: '**/yarn.lock'
-    # 缓存 有需要可以开启 同时 setu node 也可以进行缓存
-    # - name: yarn cache
-    #   id: yarn-cahce-dir-path
-    #   run: echo "::set-output name=dir::$(yarn cache dir)"
-    # - uses: actions/cache@v2
-    #   id: yarn-cache
-    #   with: 
-    #     path: ${{ steps.yarn-cahce-dir-path.outputs.dir }}
-    #     key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-    #     restore-keys: | 
-    #       ${{ runner.os }}-yarn-    
-    - run: yarn install && yarn build  
-    # 上传打包好的文件，所以下一步可以使用
-    - name: upload files 
-      uses: actions/upload-artifact@v2
-      with: 
-        name: build-page
-        path: build
-        retention-days: 1
-  Deploy: 
-    needs: Build # 确保build 阶段完成
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: |
+          # 如果你的项目文件不在根目录，需要先 cd 到项目目录
+          # cd website
+          npm install
+      - name: Build
+        run: |
+          # 如果你的项目文件不在根目录，需要先 cd 到项目目录
+          # cd website
+          npm ci && CI=false npm run build
+        env:
+          # 如果你的 URL 从根目录开始，则设置为 /，否则设置为你的子目录，如 /website
+          PUBLIC_URL: /
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # 如果你的项目文件不在根目录，请修改这里为项目的 build 目录，如 './website/build'
+          path: './build'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    needs: build
     steps:
-      - name: checkout code
-        uses: actions/checkout@v2
-      - name: download build files
-        uses: actions/download-artifact@v2
-        with:
-          name: build-page
-          path: build
-      - name: deploy
-        uses: JamesIves/github-pages-deploy-action@v4.2.3
-        with:
-          branch: gh-page
-          folder: build 
-          token: "${{ secrets.DEPLOY_TOKEN }}"  
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
