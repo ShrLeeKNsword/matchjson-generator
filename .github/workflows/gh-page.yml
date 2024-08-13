@@ -34,7 +34,7 @@ jobs:
     - name: upload files 
       uses: actions/upload-artifact@v2
       with: 
-        name: build-pages
+        name: build-page
         path: build
         retention-days: 1
   Deploy: 
@@ -46,11 +46,11 @@ jobs:
       - name: download build files
         uses: actions/download-artifact@v2
         with:
-          name: build-pages
+          name: build-page
           path: build
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.3
         with:
-          branch: gh-pages
+          branch: gh-page
           folder: build 
           token: "${{ secrets.DEPLOY_TOKEN }}"  
