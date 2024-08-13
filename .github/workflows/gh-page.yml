@@ -2,7 +2,7 @@ name: Deploy GitHub Pages
 
 on:
   push:
-    branches: ['main'] # 如果你的默认分支不是 main，请修改这里
+    branches: ['main'] # 如果你的默认分支不是 main，请修改这里!
   workflow_dispatch:
 
 permissions:
