@@ -155,7 +155,7 @@ const IndexPage = () => {
                             <Col span={10}>
                                 <Form.Input field='defend_teamName' initValue={''} label='队伍名' style={{ width: 240 }} />
                             </Col>
-                            <Col span={4}>
+                            <Col span={5}>
                                 <Form.Select field="defend_matchPoint" initValue={'0'} label={{ text: '大局得分' }} style={{ width: 80 }}>
                                     <Option value="0">0</Option>
                                     <Option value="1">1</Option>
@@ -165,7 +165,7 @@ const IndexPage = () => {
                                     <Option value="5">5</Option>
                                 </Form.Select>
                             </Col>
-                            <Col span={4}>
+                            <Col span={5}>
                                 <Form.Select field="defend_score" initValue={'0'} label={{ text: '本局得分' }} style={{ width: 80 }}>
                                     <Option value="0">0</Option>
                                     <Option value="1">1</Option>
@@ -203,8 +203,8 @@ const IndexPage = () => {
                                     </Row>
                                     <Row>
                                         <Col span={10}>
-                                            <Form.Select field="defend_players_1_character" initValue={'米雪儿·李'} label={{ text: '角色' }} style={{ width: 120 }}>
-                                                <Option value="米雪儿·李">米雪儿·李</Option>
+                                            <Form.Select field="defend_players_1_character" initValue={'米雪儿'} label={{ text: '角色' }} style={{ width: 120 }}>
+                                                <Option value="米雪儿">米雪儿</Option>
                                                 <Option value="信">信</Option>
                                                 <Option value="心夏">心夏</Option>
                                                 <Option value="伊薇特">伊薇特</Option>
@@ -252,8 +252,8 @@ const IndexPage = () => {
                                     </Row>
                                     <Row>
                                         <Col span={10}>
-                                            <Form.Select field="defend_players_2_character" initValue={'米雪儿·李'} label={{ text: '角色' }} style={{ width: 120 }}>
-                                                <Option value="米雪儿·李">米雪儿·李</Option>
+                                            <Form.Select field="defend_players_2_character" initValue={'米雪儿'} label={{ text: '角色' }} style={{ width: 120 }}>
+                                                <Option value="米雪儿">米雪儿</Option>
                                                 <Option value="信">信</Option>
                                                 <Option value="心夏">心夏</Option>
                                                 <Option value="伊薇特">伊薇特</Option>
@@ -304,8 +304,8 @@ const IndexPage = () => {
                                     </Row>
                                     <Row>
                                         <Col span={10}>
-                                            <Form.Select field="defend_players_3_character" initValue={'米雪儿·李'} label={{ text: '角色' }} style={{ width: 120 }}>
-                                                <Option value="米雪儿·李">米雪儿·李</Option>
+                                            <Form.Select field="defend_players_3_character" initValue={'米雪儿'} label={{ text: '角色' }} style={{ width: 120 }}>
+                                                <Option value="米雪儿">米雪儿</Option>
                                                 <Option value="信">信</Option>
                                                 <Option value="心夏">心夏</Option>
                                                 <Option value="伊薇特">伊薇特</Option>
@@ -353,8 +353,8 @@ const IndexPage = () => {
                                     </Row>
                                     <Row>
                                         <Col span={10}>
-                                            <Form.Select field="defend_players_4_character" initValue={'米雪儿·李'} label={{ text: '角色' }} style={{ width: 120 }}>
-                                                <Option value="米雪儿·李">米雪儿·李</Option>
+                                            <Form.Select field="defend_players_4_character" initValue={'米雪儿'} label={{ text: '角色' }} style={{ width: 120 }}>
+                                                <Option value="米雪儿">米雪儿</Option>
                                                 <Option value="信">信</Option>
                                                 <Option value="心夏">心夏</Option>
                                                 <Option value="伊薇特">伊薇特</Option>
@@ -405,8 +405,8 @@ const IndexPage = () => {
                                     </Row>
                                     <Row>
                                         <Col span={10}>
-                                            <Form.Select field="defend_players_5_character" initValue={'米雪儿·李'} label={{ text: '角色' }} style={{ width: 120 }}>
-                                                <Option value="米雪儿·李">米雪儿·李</Option>
+                                            <Form.Select field="defend_players_5_character" initValue={'米雪儿'} label={{ text: '角色' }} style={{ width: 120 }}>
+                                                <Option value="米雪儿">米雪儿</Option>
                                                 <Option value="信">信</Option>
                                                 <Option value="心夏">心夏</Option>
                                                 <Option value="伊薇特">伊薇特</Option>
@@ -451,7 +451,7 @@ const IndexPage = () => {
                             <Col span={10}>
                                 <Form.Input field='attack_teamName' initValue={''} label='队伍名' style={{ width: 240 }} />
                             </Col>
-                            <Col span={4}>
+                            <Col span={5}>
                                 <Form.Select field="attack_matchPoint" initValue={'0'} label={{ text: '大局得分' }} style={{ width: 80 }}>
                                     <Option value="0">0</Option>
                                     <Option value="1">1</Option>
@@ -461,7 +461,7 @@ const IndexPage = () => {
                                     <Option value="5">5</Option>
                                 </Form.Select>
                             </Col>
-                            <Col span={4}>
+                            <Col span={5}>
                                 <Form.Select field="attack_score" initValue={'0'} label={{ text: '本局得分' }} style={{ width: 80 }}>
                                     <Option value="0">0</Option>
                                     <Option value="1">1</Option>
